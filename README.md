@@ -1,3 +1,8 @@
+# Play Digitally
+To play digitally, click <a href="https://salamandeenie.github.io/Chesstack/Project%20Stackers/Index.html">here</a>.
+
+[NOTE] Please read the Chesstack Rules, as they are not included in the code as of now. 
+
 # Chesstack Rules
 
 Chesstack is a game similar to the age-old classic game, Chess. It’s traditionally played on a 5x5 game board, but is versatile enough to suit almost any situation. This guide will get you started with the ins and outs of Chesstack.
