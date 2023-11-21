@@ -9,7 +9,7 @@
     var BoardUpdateData = [];
     
     // The boundary of the board, in the format Max X, Max Y. Default is [4, maxX]
-    var BoardLimit = [8, 8]; 
+    var BoardLimit = [7, 7]; 
 
     // This two keep track whose turn it is
     var turnTracker = 0;

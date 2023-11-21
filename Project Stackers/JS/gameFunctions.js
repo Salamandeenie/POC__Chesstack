@@ -15,13 +15,11 @@
 {
     // this initializes the board.
     function initBoard() {
-        createGamePieceRow(BoardLimit[0], [0,0], 4, "Orange");
-        createGamePieceRow(BoardLimit[0], [0,1], 2, "Orange");
-        createGamePieceRow(BoardLimit[0], [0,2], 1, "Orange");
-
-        createGamePieceRow(BoardLimit[0], [0, BoardLimit[1] -1], 4, "Blue");
-        createGamePieceRow(BoardLimit[0], [0, BoardLimit[1] -2], 2, "Blue");
-        createGamePieceRow(BoardLimit[0], [0, BoardLimit[1] -3], 1, "Blue");
+        createGamePieceRow(5, [1,0], 1, "Orange");
+        createGamePieceRow(5, [1,BoardLimit[1] -1], 1, "Blue");
+        // createGamePieceRow(5, [0,1], 1, "Green", true); // Shhh... Multiplayer code...
+        // createGamePieceRow(5, [BoardLimit[0] -1,1], 1, "Violet", true);
+        
     }
 
     // Function to draw the game board
@@ -52,7 +50,7 @@
                     // Add click event listener to select/deselect game pieces
                     cellDiv.addEventListener('click', () => toggleSelectGamePiece(gamePiece, cellDiv));
                 } else {
-                    cellDiv.style.backgroundColor = 'gray'; // Adjust the color for empty spaces
+                    cellDiv.style.backgroundColor = 'lightgray'; // Adjust the color for empty spaces
                 }
     
                 // Set the position using grid column and row
@@ -67,14 +65,24 @@
     
 
     // This creates a row of GamePieces and appends it to BoardData
-    function createGamePieceRow(Length = BoardLimit[0], startPos = [0, 0], stackHeight = 1, owner) {
+    function createGamePieceRow(Length = BoardLimit[0], startPos = [0, 0], stackHeight = 1, owner, isVertical = false) {
         for (let i = 0; i < Length; i++) {
-            const position = [startPos[0] + i, startPos[1]];
+            let position;
+            
+            if (isVertical) {
+                position = [startPos[0], startPos[1] + i];
+            } else {
+                position = [startPos[0] + i, startPos[1]];
+            }
+
             const gamePiece = new GamePiece(position, stackHeight, owner);
             BoardUpdateData.push(gamePiece); // Push each game piece individually
             resolveBoardConflicts();
         }
     }
+
+
+
 
 
     // Selects a game piece and defines the direction you want it to go.
