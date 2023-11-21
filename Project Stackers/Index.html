@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Chesstack Game</title>
+</head>
+<body>
+    <div id="controls">
+        <!-- Directional buttons with onclick attributes -->
+        <div id="direction-buttons">
+            <button onclick="moveSelectedPiece([-1, 1])">↖</button>
+            <button onclick="moveSelectedPiece([0, 1])">↑</button>
+            <button onclick="moveSelectedPiece([1, 1])">↗</button>
+
+            <button onclick="moveSelectedPiece([-1, 0])">←</button>
+            <button onclick="moveSelectedPiece([0, 0])">X</button>
+            <button onclick="moveSelectedPiece([1, 0])">→</button>
+
+            <button onclick="moveSelectedPiece([-1, -1])">↙</button>
+            <button onclick="moveSelectedPiece([0, -1])">↓</button>
+            <button onclick="moveSelectedPiece([1, -1])">↘</button>
+        </div>
+    </div>
+
+    <div id="game-board"></div>
+    <script src="../Project Stackers/JS/gameVariables.js"></script>
+    <script src="../Project Stackers/JS/gameFunctions.js"></script>
+    <script src="../Project Stackers/JS/gameScript.js"></script>
+</body>
+</html>
+
