@@ -15,8 +15,13 @@
 {
     // this initializes the board.
     function initBoard() {
-        createGamePieceRow(BoardLimit[0], [0,0], 1, "Orange");
-        createGamePieceRow(BoardLimit[0], [0, BoardLimit[1] -1], 1, "Blue");
+        createGamePieceRow(BoardLimit[0], [0,0], 4, "Orange");
+        createGamePieceRow(BoardLimit[0], [0,1], 2, "Orange");
+        createGamePieceRow(BoardLimit[0], [0,2], 1, "Orange");
+
+        createGamePieceRow(BoardLimit[0], [0, BoardLimit[1] -1], 4, "Blue");
+        createGamePieceRow(BoardLimit[0], [0, BoardLimit[1] -2], 2, "Blue");
+        createGamePieceRow(BoardLimit[0], [0, BoardLimit[1] -3], 1, "Blue");
     }
 
     // Function to draw the game board
@@ -66,7 +71,8 @@
         for (let i = 0; i < Length; i++) {
             const position = [startPos[0] + i, startPos[1]];
             const gamePiece = new GamePiece(position, stackHeight, owner);
-            BoardData.push(gamePiece); // Push each game piece individually
+            BoardUpdateData.push(gamePiece); // Push each game piece individually
+            resolveBoardConflicts();
         }
     }
 
@@ -80,7 +86,7 @@
         let y = clonePiece.position[1];
         
         x = x + (direction[0] * clonePiece.level);
-        y = y + (-direction[1] * clonePiece.level);
+        y = y + (direction[1] * clonePiece.level);
 
 
         let pushedGamePiece = new GamePiece([x,y], clonePiece.level, clonePiece.owner);
@@ -178,7 +184,7 @@ function resolveBoardConflicts() {
             }
     
             selectedGamePiece = gamePiece;
-            cellDiv.style.border = '2px solid black'; // Add a black outline
+            cellDiv.style.border = '1px solid black'; // Add a black outline
             enableDirectionButtons(true); // Enable direction buttons
         }
     }

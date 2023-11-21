@@ -9,5 +9,8 @@
     var BoardUpdateData = [];
     
     // The boundary of the board, in the format Max X, Max Y. Default is [4, maxX]
-    var BoardLimit = [5, 5]; 
+    var BoardLimit = [8, 8]; 
 
+    // This two keep track whose turn it is
+    var turnTracker = 0;
+    var turnToColor = ["Blue", "Orange"]

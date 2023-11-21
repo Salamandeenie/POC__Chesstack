@@ -3,7 +3,6 @@
     width: 3vw;
     height: 3vw; /* Make it square */
     text-align: center;
-    margin: 0 0.1em; /* Add space between segments */
     font-size: 1.5vw; /* Increase font size */
     font-weight: bold; /* Make text bold */
     display: flex;
@@ -16,10 +15,14 @@
 #game-board {
     display: grid;
     grid-template-columns: repeat(5, 3vw); /* Adjust the number of columns based on your board size */
-    gap: 1vw;
+    gap: 1px;
     align-self: center;
     margin: 0 auto;
-    transform: translateY(50%) translateX(-5px);
+    margin-top: 5vh;
+    transform: translateX(-5px);
+    padding: 1.5%;
+    background-color: lightgrey;
+    border-radius: 10%;
 }
 
 body {
@@ -35,7 +38,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    gap: 5px;
+    gap: 1px;
 }
 
 #direction-buttons button {
@@ -47,8 +50,7 @@ body {
 
 #controls {
     width: fit-content;
-    position: fixed;
+    position: relative;
     align-self: center;
-
-    top: 60%;
+    margin-top: 5vh;
 }
