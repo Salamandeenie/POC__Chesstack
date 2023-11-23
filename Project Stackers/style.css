@@ -1,5 +1,5 @@
 /* Default styles for wider screens */
-.game-piece {
+.game-piece{
     width: 3vw;
     height: 3vw; /* Make it square */
     text-align: center;
@@ -9,6 +9,28 @@
     justify-content: center;
     align-items: center;
     border-radius: 20%;
+}
+
+.bubble{
+    width: 5vw;
+    height: 3vw;
+    font-size: 1.5vw;
+    text-align: center;
+    border-radius: 20%;
+
+    appearance: textfield;
+ 
+}
+
+.config-board{
+    display: flex;
+    height: fit-content;
+    width: auto;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    border: 1px solid #000;
+    color: black;
 }
 
 /* Add some basic styling for the game board */
@@ -52,4 +74,8 @@ body {
     position: relative;
     align-self: center;
     margin-top: 5vh;
+}
+
+#title {
+    font-size: 5em;
 }

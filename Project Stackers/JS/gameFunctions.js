@@ -13,13 +13,49 @@
 
 // Board functions
 {
-    // this initializes the board.
-    function initBoard() {
-        createGamePieceRow(5, [1,0], 1, "Orange");
-        createGamePieceRow(5, [1,BoardLimit[1] -1], 1, "Blue");
-        // createGamePieceRow(5, [0,1], 1, "Green", true); // Shhh... Multiplayer code...
-        // createGamePieceRow(5, [BoardLimit[0] -1,1], 1, "Violet", true);
+    //Starts the game based on the inputs given
+    function startGame()
+    {
+        if(numPlayers.value == "" || boardSizeX.value == "" || boardSizeY.value == "")
+        {
+            return alert("Error: Insufficiant Data to generate board. Please fill all fields.")
+        }
+
+        if(numPlayers.value == 3 && boardSizeY.value % 2 == 0)
+        {
+            alert("Warning: It is not recommeneded to have an odd number of players and an even Board Y")
+        }
+
+        document.getElementById('trueConfig').style.display = "none";
         
+
+        BoardLimit = [boardX.value, boardY.value];
+
+        createGamePieceRow(BoardLimit[0] -2, [1,0], 1, "Orange");
+        createGamePieceRow(BoardLimit[0] -2, [1,BoardLimit[1] -1], 1, "Blue");
+
+        if(numPlayers.value == 3)
+        {
+            createGamePieceRow(BoardLimit[1] - 2, [1, Math.ceil(BoardLimit[1] / 2) -1], 1, "Green");
+            turnToColor.push("Green");
+        }
+        if(numPlayers.value == 4)
+        {
+            createGamePieceRow(BoardLimit[1] -2, [0,1], 1, "Green", true);
+            createGamePieceRow(BoardLimit[1] -2, [BoardLimit[0] -1,1], 1, "Violet", true)
+            turnToColor.push("Green");
+            turnToColor.push("Violet")
+        }  
+
+        resolveBoardConflicts();
+    }
+
+    // Draws an empty board... that is it.
+    function initBoard()
+    {
+        BoardLimit = [8,8];
+
+        drawGameBoard();
     }
 
     // Function to draw the game board
@@ -81,9 +117,11 @@
         }
     }
 
-
-
-
+    // Keeps track of whose turn it is currently
+    function returnColorTurn()
+    {
+        return turnToColor[(turnTracker % turnToColor.length)];
+    }
 
     // Selects a game piece and defines the direction you want it to go.
     function movePiece(gamePiece, direction) {
@@ -102,10 +140,10 @@
         resolveBoardConflicts();
     }
 
-// Function to resolve conflicts and update positions
-function resolveBoardConflicts() {
-    for (let i = 0; i < BoardUpdateData.length; i++) {
-        const gamePiece = BoardUpdateData[i];
+    // Function to resolve conflicts and update positions
+    function resolveBoardConflicts() {
+        for (let i = 0; i < BoardUpdateData.length; i++) {
+            const gamePiece = BoardUpdateData[i];
 
         // Wrap around if x is greater than or equal to board limit
         if (gamePiece.position[0] >= BoardLimit[0]) {
@@ -113,8 +151,8 @@ function resolveBoardConflicts() {
         }
 
         // Wrap around if x is less than 0
-        if (gamePiece.position[0] < 0) {
-            gamePiece.position[0] = (gamePiece.position[0] + BoardLimit[0]) % BoardLimit[0];
+        else if (gamePiece.position[0] < 0) {
+            gamePiece.position[0] = (BoardLimit[0] - Math.abs(gamePiece.position[0])) % BoardLimit[0];
         }
 
         // Wrap around if y is greater than or equal to board limit
@@ -123,8 +161,8 @@ function resolveBoardConflicts() {
         }
 
         // Wrap around if y is less than 0
-        if (gamePiece.position[1] < 0) {
-            gamePiece.position[1] = (gamePiece.position[1] + BoardLimit[1]) % BoardLimit[1];
+        else if (gamePiece.position[1] < 0) {
+            gamePiece.position[1] = (BoardLimit[1] - Math.abs(gamePiece.position[1])) % BoardLimit[1];
         }
 
         // Check for conflicts with existing pieces in BoardData
@@ -146,7 +184,7 @@ function resolveBoardConflicts() {
     // Clear the update array after resolving conflicts
     BoardUpdateData = [];
     drawGameBoard();
-}
+    }
 
 
     // Destroys a given gamePiece
@@ -176,6 +214,8 @@ function resolveBoardConflicts() {
 // Button Functions
 {
     function toggleSelectGamePiece(gamePiece, cellDiv) {
+    if (gamePiece.owner == returnColorTurn())
+    {
         if (selectedGamePiece === gamePiece) {
             // Deselect the currently selected game piece
             selectedGamePiece = null;
@@ -196,6 +236,9 @@ function resolveBoardConflicts() {
             enableDirectionButtons(true); // Enable direction buttons
         }
     }
+    else alert("It is currently " + returnColorTurn() + "'s turn");
+
+    }
 
     function enableDirectionButtons(enabled) {
         const directionButtons = document.querySelectorAll('#direction-buttons button');
@@ -212,8 +255,22 @@ function resolveBoardConflicts() {
         selectedGamePiece = null; // Deselect after moving
         drawGameBoard(); // Redraw the board after the move
         enableDirectionButtons(false); // Disable direction buttons after moving
+        turnTracker++;
+        updateGUI();
     }
 }
 
-        
+// HUD Functions
+{
+    function updateGUI()
+    {
+        var turner = document.getElementById("turner");
+        turner.textContent = returnColorTurn() + "'s Turn";
+        turner.style.color = returnColorTurn().toLowerCase();
+    }
+}
+
+
+
+
 }

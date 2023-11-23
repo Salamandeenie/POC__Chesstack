@@ -3,9 +3,24 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Chesstack Game</title>
+    <title>Chesstack</title>
 </head>
 <body>
+    <div class="config-board">
+        <div id="title">Chesstack</div>
+    </div>
+
+    <div class="config-board" id="trueConfig">
+        <p>Number of Players (2-4) <</p><input id="numberPlayers" type="number" min="2" max="4" class="bubble">
+        <p>> Board Width <</p><input id="boardX" type="number" class="bubble" min="3">
+        <p>> Board Length <</p><input id="boardY" type="number" class="bubble" min="3">
+        <button onclick="startGame()" id="startGame">Start Game</button>
+    </div>
+
+    <div class="config-board">
+        <p id="turner">. . . Awaiting Input . . .</p>
+    </div>
+
     <div id="game-board"></div>
 
     <div id="controls">

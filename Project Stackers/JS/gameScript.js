@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function (){
     initBoard();
-    drawGameBoard();
+    updateGUI();
     console.log(BoardData);
 });

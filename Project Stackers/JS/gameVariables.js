@@ -13,4 +13,9 @@
 
     // This two keep track whose turn it is
     var turnTracker = 0;
-    var turnToColor = ["Blue", "Orange"]
+    var turnToColor = ["Blue", "Orange"];
+
+    // Inputs
+    const numPlayers = document.getElementById('numberPlayers');
+    const boardSizeX = document.getElementById('boardX');
+    const boardSizeY = document.getElementById('boardY');
