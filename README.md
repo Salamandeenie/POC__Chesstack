@@ -2,7 +2,7 @@
 This repo is only a proof of concept. It is missing a multitude of features that would allow me to say that it is "complete".
 
 # Play Digitally
-To play digitally, click <a href="https://salamandeenie.github.io/Chesstack/Project%20Stackers/Index.html">here</a>.
+To play digitally, click <a href="https://salamandeenie.github.io/POC__Chesstack/Project%20Stackers/Index.html">here</a>.
 
 [NOTE] Please read the Chesstack Rules, as they are not included in the code as of now. 
 
