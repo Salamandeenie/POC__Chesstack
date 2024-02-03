@@ -29,7 +29,7 @@ Chesstack is a game similar to the age-old classic game, Chess. It’s tradition
 
 ## How To Win
 To win you must do one of the following:
-- Capture all of your opponents pieces
+- Capture all of your opponent's pieces
 - Cause a Checkmate condition, so that your opponent cannot make a move that will not result in the previous win condition
 - A tie occurs if neither player cannot capture the other's pieces. For this to occur both players must agree to defeat.
 
