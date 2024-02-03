@@ -18,7 +18,7 @@ Chesstack is a game similar to the age-old classic game, Chess. It’s tradition
 - Players take turns moving one cup stack that they own, depicted by the stacks color.
 
 - The number of spaces a cup is able to move depends on how high a stack is.
-- - For example a stack of 3 cups moves 3 spaces left, right, up, or down.
+ - For example a stack of 3 cups moves 3 spaces left, right, up, or down.
 
 
 The goal of this game is to capture all of your opponents’ cups by moving and stacking them.
