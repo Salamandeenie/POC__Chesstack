@@ -8,7 +8,7 @@ To play digitally, click <a href="https://salamandeenie.github.io/POC__Chesstack
 
 # Chesstack Rules
 
-Chesstack is a game similar to the age-old classic game, Chess. It’s traditionally played on a 5x5 game board, but it is versatile enough to suit almost any situation. This guide will get you started with the ins and outs of Chesstack.
+Chesstack is a game similar to the age-old classic game, Chess. It’s traditionally played on a 8x8 game board, but it is versatile enough to suit almost any situation. This guide will get you started with the ins and outs of Chesstack.
 
 ## Materials:
 - The link above
@@ -18,13 +18,20 @@ Chesstack is a game similar to the age-old classic game, Chess. It’s tradition
 - Players take turns moving one cup stack that they own, depicted by the stacks color.
 - The number of spaces a cup is able to move depends on how high a stack is.
   - For example a stack of 3 cups moves 3 spaces left, right, up, or down.
-
-
-The goal of this game is to capture all of your opponents’ cups by moving and stacking them.
-On your turn, you may move 1 of your cups or stack of cups to any space available for movement. The amount of spaces a cup is able to move depends on how many cups are in the stack you are moving. For example, a stack of 3 cups may move 3 spaces up, down, left, or right. Cups may loop around the sides of the board.
-When a cup or stack of cups lands on a space with another cup on it, the cup is added to the bottom of the attacker’s stack. You may move cups onto your own pieces.
-If a stack has 5 or more cups in it, then the stack can only move 1 space in any direction including diagonals. The amount of spaces a stack moves when over this amount never increases past 1 space.
-Who controls a stack of cups is dictated by what color of cup is on top of the stack.
+- When a cup (stack) lands on a space already occupied by another cup, the two cup (stacks) are added, and the color of the resulting stack is that of the landed cup.
+  - For example, a blue cup lands on a stack of 3 orange cups. The resulting stack is 4 cups tall, and is blue.
+- You may stack on your own cups
+- Cup stacks may loop around the board
+  - This excludes single stacks
+- When a cup stack is equal to or exceeds the boards width (On a traditional 8x8 board, 8 cups tall) it becomes a Max Stack
+  - Max stacks can move any distance up, down, left, or right
+  - When Max Stacks capture other stacks, or are captured, they remain Max Stacks
+ 
+  ## How To Win
+  To win you must do one of the following:
+  - Capture all of your opponents pieces
+  - Cause a Checkmate condition, so that your opponent cannot make a move that will not result in the previous win condition
+  - A tie occurs if neither player cannot capture the other's pieces. For this to occur both players must agree to defeat.
 
 
 
