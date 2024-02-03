@@ -26,12 +26,12 @@ Chesstack is a game similar to the age-old classic game, Chess. It’s tradition
 - When a cup stack is equal to or exceeds the boards width (On a traditional 8x8 board, 8 cups tall) it becomes a Max Stack
   - Max stacks can move any distance up, down, left, or right
   - When Max Stacks capture other stacks, or are captured, they remain Max Stacks
- 
-  ## How To Win
-  To win you must do one of the following:
-  - Capture all of your opponents pieces
-  - Cause a Checkmate condition, so that your opponent cannot make a move that will not result in the previous win condition
-  - A tie occurs if neither player cannot capture the other's pieces. For this to occur both players must agree to defeat.
+
+## How To Win
+To win you must do one of the following:
+- Capture all of your opponents pieces
+- Cause a Checkmate condition, so that your opponent cannot make a move that will not result in the previous win condition
+- A tie occurs if neither player cannot capture the other's pieces. For this to occur both players must agree to defeat.
 
 
 
